@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+{%load static%}
+<head>
+    <meta charset="UTF-8">
+    <title>Gallery</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
+    <script src="{% static 'themes.js' %}"></script>
+    <link rel="stylesheet" href="{%static 'navbar.css' %}">
+    <link rel="stylesheet" id="theme_link"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.3.1/materia/bootstrap.min.css">
+<!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"-->
+<!--          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">-->
+    <style>
+    .image-hover{
+    width: 1000px;
+    height: 500px;
+    }
+    .image-hover:hover{
+    background: white;
+    }
+    .scale {
+    transition: 1s; /* Время эффекта */
+    }
+    .scale:hover {
+    transform: scale(1.2); /* Увеличиваем масштаб */
+    }
+    div.gallery {
+    margin: 5px;
+    float: left;
+    width: 180px;
+    }
+
+    div.gallery:hover {
+    }
+
+    div.gallery img {
+    width: 100%;
+    height: auto;
+    }
+
+    div.desc {
+    padding: 15px;
+    text-align: center;
+    text-color: red;
+    }
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        {%for photo in photos%}
+        <div class="gallery">
+            <a href="{{MEDIA_URL}}{{photo.image.url}}">
+                <img class="scale" src="{{MEDIA_URL}}{{photo.image.url}}">
+            </a>
+            <div class="desc">
+                {{photo.title}}
+                {{photo.captions}}
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="navbar fixed-right navbar-dark bg-dark">
+            <ul>
+                <li>
+                    <a href="/">Gallery</a>
+                </li>
+                <li>
+                    <a href="/form">Form</a>
+                </li>
+                <li>
+                    <a href="/admin">Admin</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="card">
+            <div class="card-body">
+                <div class="form-group">
+                    <label>
+                        Select another bootstrap theme from
+                        <a href="https://bootswatch.com/" target="_blank">Bootswatch</a>
+                    </label>
+                    <select class="form-control width-md" id="theme_select" onchange="selectTheme(value)">
+                        <option value="cerulean">Cerulean</option>
+                        <option value="cosmo">Cosmo</option>
+                        <option value="cyborg">Cyborg</option>
+                        <option value="darkly">Darkly</option>
+                        <option value="flatly">Flatly</option>
+                        <option value="journal">Journal</option>
+                        <option value="litera">Litera</option>
+                        <option value="lumen">Lumen</option>
+                        <option value="lux">Lux</option>
+                        <option value="materia" selected="selected">Materia</option>
+                        <option value="minty">Minty</option>
+                        <option value="pulse">Pulse</option>
+                        <option value="sandstone">Sandstone</option>
+                        <option value="simplex">Simplex</option>
+                        <option value="sketchy">Sketchy</option>
+                        <option value="slate">Slate</option>
+                        <option value="solar">Solar</option>
+                        <option value="spacelab">Spacelab</option>
+                        <option value="superhero">Superhero</option>
+                        <option value="united">United</option>
+                        <option value="yeti">Yeti</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
