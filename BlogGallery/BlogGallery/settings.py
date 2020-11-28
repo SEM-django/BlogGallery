@@ -36,7 +36,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'simplegallery.apps.SimplegalleryConfig',
-    'django_cleanup',
 ]
 
 MIDDLEWARE = [
