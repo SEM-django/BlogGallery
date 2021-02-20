@@ -1,10 +1,10 @@
 var themes = [
-    'cerulean',
+//    'cerulean',
     'cosmo',
-    'cyborg',
-    'darkly',
-    'flatly',
-    'journal',
+//    'cyborg',
+//    'darkly',
+//    'flatly',
+//    'journal',
     'litera',
     'lumen',
     'lux',
@@ -13,7 +13,7 @@ var themes = [
     'pulse',
     'sandstone',
     'simplex',
-    'sketchy',
+//    'sketchy',
     'slate',
     'solar',
     'spacelab',
@@ -22,21 +22,6 @@ var themes = [
     'yeti'
 ];
 
-$(document).ready(function () {
-    $('[data-class]').click(function () {
-        updateNavbarClass($(this).attr('data-class'));
-    });
-
-    updateNavbarClass('fixed-left');
-
-    themes.forEach(function (theme) {
-        $('#theme_select').append($('<option>', {
-            value: theme,
-            text: theme.charAt(0).toUpperCase() + theme.slice(1),
-            selected: theme === 'materia'
-        }));
-    });
-});
 
 function updateNavbarClass(className) {
     $('nav')
@@ -69,5 +54,9 @@ function fixBodyMargin(className) {
 }
 
 function selectTheme(theme) {
+    console.log(theme);
+    let r = new XMLHttpRequest();
+    r.open('GET', 'http://127.0.0.1:8000/get_theme/' + theme);
+    r.send();
     $('#theme_link').attr('href', 'https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.3.1/' + theme + '/bootstrap.min.css');
 }

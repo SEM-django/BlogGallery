@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-{%load static%}
 <head>
     <meta charset="UTF-8">
-    <title>Add your image</title>
-    <script src="{% static 'themes.js' %}"></script>
-    <link rel="stylesheet" href="{%static 'navbar.css' %}">
+    <title>Block Editor</title>
     <link rel="stylesheet" id="theme_link"
-          href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.3.1/{{theme}}/bootstrap.min.css">
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.3.1/materia/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
             integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
     <script src="{% static 'themes.js' %}"></script>
@@ -20,10 +17,11 @@
 
 
 
+
+
     </style>
 </head>
 <body>
-{%include 'simplegallery/navbar.html'%}
 <div class="pos">
     <form action="" method="post" enctype="multipart/form-data">
         {%csrf_token%}
@@ -34,10 +32,10 @@
                 {{field}}
             </div>
         </div>
-        {%endfor%}
         <input class="btn btn-outline-success" type="submit" value="Send">
     </form>
 </div>
+
 
 </body>
 </html>
